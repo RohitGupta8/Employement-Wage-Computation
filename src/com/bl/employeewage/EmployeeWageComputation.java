@@ -4,11 +4,13 @@ public class EmployeeWageComputation {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation\n");
-        int employeeHrs = 0, Workday = 20, employeeRate = 20, totalEmployeeWage = 0;
-        int employeeWage;
-        for (int day = 1; day <= Workday; day++) {
-            int isEmployee = (int) Math.floor ( Math.random () * 10 ) % 3;
-            switch (isEmployee) {
+        
+        int employeeHrs, employeeRate = 20, totalEmployeeWage = 0, totalEmployeeHrs = 0, totalWorkDay = 0;
+
+        while (totalEmployeeHrs <= 100 && totalWorkDay < 20) {
+            int employee = (int) Math.floor ( Math.random () * 10 ) % 3;
+            totalWorkDay++;
+            switch (employee) {
                 case 0 -> {
                     System.out.println ( "Employee is Absent" );
                     employeeHrs = 0;
@@ -22,10 +24,11 @@ public class EmployeeWageComputation {
                     employeeHrs = 3;
                 }
             }
-            employeeWage = employeeHrs * employeeRate;
-            totalEmployeeWage += employeeWage;
-            System.out.println ( "Day " + day + " Employee Wage is Rs." + employeeWage );
+            totalEmployeeHrs = totalEmployeeHrs + employeeHrs;
+            System.out.println ( "Day " + totalWorkDay + " Employee Hours: " + employeeHrs );
         }
-        System.out.println ( "\nTotal Employee Wage is Rs." + totalEmployeeWage );
+        totalEmployeeWage = totalEmployeeHrs * employeeRate;
+        System.out.println ( "Total Working Hours: " + totalEmployeeHrs );
+        System.out.println ( "Total Employee wage for a Month Rs. " + totalEmployeeWage );
     }
 }
