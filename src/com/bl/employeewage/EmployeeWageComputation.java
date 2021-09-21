@@ -4,35 +4,28 @@ public class EmployeeWageComputation {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation\n");
-        int isEmployee = (int) Math.floor(Math.random() * 10) % 3;
-        int employeeHrs = 0;
-        int employeeRate = 20;
+        int employeeHrs = 0, Workday = 20, employeeRate = 20, totalEmployeeWage = 0;
         int employeeWage;
-//        if (isEmployee==0){
-//            System.out.println("Employee is Absent");
-//            employeeHrs = 0;
-//        }else if (isEmployee==1) {
-//            System.out.println("Employee is Present");
-//            employeeHrs = 8;
-//        }else if (isEmployee==2) {
-//            System.out.println("Employee doing part time");
-//            employeeHrs = 3;
-//        }
-        switch (isEmployee) {
-            case 0 -> {
-                System.out.println("Employee is Absent");
-                employeeHrs = 0;
+        for (int day = 1; day <= Workday; day++) {
+            int isEmployee = (int) Math.floor ( Math.random () * 10 ) % 3;
+            switch (isEmployee) {
+                case 0 -> {
+                    System.out.println ( "Employee is Absent" );
+                    employeeHrs = 0;
+                }
+                case 1 -> {
+                    System.out.println ( "Employee is Present" );
+                    employeeHrs = 8;
+                }
+                default -> {
+                    System.out.println ( "Employee doing Part Time" );
+                    employeeHrs = 3;
+                }
             }
-            case 1 -> {
-                System.out.println("Employee is Present");
-                employeeHrs = 8;
-            }
-            case 2 -> {
-                System.out.println("Employee doing Part Time");
-                employeeHrs = 3;
-            }
+            employeeWage = employeeHrs * employeeRate;
+            totalEmployeeWage += employeeWage;
+            System.out.println ( "Day " + day + " Employee Wage is Rs." + employeeWage );
         }
-        employeeWage = employeeHrs * employeeRate;
-        System.out.println("\nEmployee Wage is Rs." + employeeWage);
+        System.out.println ( "\nTotal Employee Wage is Rs." + totalEmployeeWage );
     }
 }
