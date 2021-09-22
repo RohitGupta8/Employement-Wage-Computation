@@ -1,9 +1,9 @@
 package com.bl.employeewage;
 
 public class EmployeeWageComputation {
-    public static int employeeHrs, totalEmployeeWage = 0, totalEmployeeHrs = 0, totalWorkDay = 0;
+    int employeeHrs, totalEmployeeWage = 0, totalEmployeeHrs = 0, totalWorkDay = 0;
 
-    public static void computeEmployeeWage (String company,int employeeRate,int number_of_working_day,int maxHrs) {
+    public  void computeEmployeeWage (String company,int employeeRate,int number_of_working_day,int maxHrs) {
         while ( totalWorkDay < number_of_working_day) {
             int isEmployee = (int) Math.floor ( Math.random () * 10 ) % 3;
             totalWorkDay++;
@@ -32,7 +32,8 @@ public class EmployeeWageComputation {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation\n");
-        computeEmployeeWage("Reliance",200,30,9);
-        computeEmployeeWage("DMart",180,30,10);
+        EmployeeWageComputation employeeWageComputation=new EmployeeWageComputation();
+       employeeWageComputation. computeEmployeeWage("Reliance",200,30,9);
+        employeeWageComputation.computeEmployeeWage("DMart",180,30,10);
     }
 }
